@@ -23,3 +23,24 @@ export async function POST(req: Request) {
     headers: { "Content-Type": "application/json" },
   });
 }
+
+// You have to send ID here
+export async function DELETE(req: Request) {
+  const { id } = await req.json();
+  const index = games.findIndex((item) => item.id === id);
+
+  // Response if it isnt found
+  if (index == -1) {
+    return Response.json("Game not found", {
+      status: 404,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  const removedGame = games.splice(index, 1);
+
+  return Response.json(removedGame, {
+    status: 202,
+    headers: { "Content-Type": "application/json" },
+  });
+}

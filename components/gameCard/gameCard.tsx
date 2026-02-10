@@ -1,10 +1,13 @@
 "use client";
 import { Game } from "@/app/api/route";
 import styles from "./gameCard.module.css";
+import { useRouter } from "next/navigation";
 
 export default function GameCard({ game }: { game: Game }) {
+  const router = useRouter();
+
   const onPress = () => {
-    console.log("nice");
+    router.push(`/games/${game.id}`);
   };
 
   return (
