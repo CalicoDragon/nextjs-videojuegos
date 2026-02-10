@@ -26,7 +26,8 @@ export async function POST(req: Request) {
 
 // You have to send ID here
 export async function DELETE(req: Request) {
-  const { id } = await req.json();
+  const id = await req.json();
+  console.log("what api got", id);
   const index = games.findIndex((item) => item.id === id);
 
   // Response if it isnt found

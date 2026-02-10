@@ -1,5 +1,4 @@
 "use client";
-import { Game } from "@/app/api/route";
 import styles from "./gameCard.module.css";
 
 export default function AddCard({ clickAdd }: { clickAdd: any }) {
