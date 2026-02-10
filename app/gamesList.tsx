@@ -9,16 +9,18 @@ export default function GamesList({ games }: { games: Array<Game> }) {
   // Modal Section
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex flex-col min-h-screen  bg-zinc-50 font-sans dark:bg-black">
       {/* turn games array into GameCards */}
-      {games.map((game: Game) => (
-        <GameCard key={game.id.toString()} game={game} />
-      ))}
-      <AddCard
-        clickAdd={() => {
-          setIsOpen(true);
-        }}
-      />
+      <div className="flex flex-wrap gap-4 m-6">
+        {games.map((game: Game) => (
+          <GameCard key={game.id.toString()} game={game} />
+        ))}
+        <AddCard
+          clickAdd={() => {
+            setIsOpen(true);
+          }}
+        />
+      </div>
 
       {/* Modal GameForm */}
       <GameForm
