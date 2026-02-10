@@ -1,0 +1,17 @@
+"use client";
+import { useRouter } from "next/navigation";
+
+export default function NavBar() {
+  const router = useRouter();
+
+  const goHome = () => {
+    router.push("/");
+  };
+  return (
+    <nav className="fixed h-18 w-full flex items-center justify-center bg-black">
+      <h1 className="text-white font-semibold text-2xl cursor-pointer">
+        <a onClick={goHome}>Home</a>
+      </h1>
+    </nav>
+  );
+}

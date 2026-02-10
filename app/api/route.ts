@@ -1,4 +1,10 @@
-const games: Array<any> = [];
+export type Game = {
+  id: Number;
+  title: String;
+  genre: String;
+};
+
+const games: Array<Game> = [];
 
 export async function GET() {
   return Response.json(games, {
@@ -8,8 +14,8 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  const { title } = await req.json();
-  const newGame = { id: Date.now().toString(), title };
+  const { title, genre } = await req.json();
+  const newGame: Game = { id: Date.now(), title, genre };
   games.push(newGame);
 
   return Response.json(newGame, {
